@@ -1,0 +1,286 @@
+/* =========================
+   FONTS
+========================= */
+
+@font-face {
+    font-family: 'CustomHeading';
+    src: url('fonts/THEBOLDFONT-FREEVERSION.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* =========================
+   RESET / BASE
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1, h2, h3 {
+    font-family: 'CustomHeading', Arial, sans-serif;
+    letter-spacing: 0.5px;
+    margin: 0 0 10px 0;
+}
+
+p {
+    margin: 0 0 10px 0;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+    background: #111;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 175px;
+    width: auto;
+    display: block;
+}
+
+.site-header h1 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.tagline {
+    font-size: 12px;
+    opacity: 0.7;
+    margin: 0;
+}
+
+nav a {
+    color: #ddd;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* =========================
+   HERO (SPLIT LAYOUT)
+========================= */
+
+.hero {
+    position: relative;
+    height: 20vh;
+    min-height: 300px;
+
+    background: 
+            linear-gradient(
+            135deg,
+            #3f4448,
+            #25282b
+        );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.10);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    max-width: 1000px;
+    padding: 20px;
+}
+
+/* HERO LOGO */
+.hero-logo {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+/* HERO TEXT */
+.hero-text {
+    text-align: left;
+}
+
+.hero-text h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+/* =========================
+   SERVICES STRIP
+========================= */
+
+.services-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.service {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 6px;
+    transition: transform 0.2s ease;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+}
+
+.service span {
+    font-size: 28px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.service p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    background: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-highlight {
+    text-align: center;
+}
+
+.email {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .header-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 8px 10px 0 10px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-logo {
+        width: 140px;
+    }
+
+    .hero-text h2 {
+        font-size: 26px;
+    }
+}
