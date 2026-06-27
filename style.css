@@ -32,6 +32,7 @@ h2 {
 
 h3 {
     font-family: 'CustomHeading', sans-serif;
+    font-size: clamp(24px, 2vw, 20px);
     text-transform: uppercase;
     text-align: center;
     color: #ffffff;
@@ -205,24 +206,107 @@ body {
     flex-wrap: wrap;
 }
 
-/* GALLERY */
-.scroll-gallery {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding: 10px 0;
-}
-.scroll-gallery img {
-    height: clamp(180px, 40vw, 280px);
-    border-radius: 6px;
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-container {
+    position: relative;
+    max-width: 100%;
 }
 
-/* FOOTER */
-footer {
+/* MAIN SLIDES */
+.mySlides {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    position: absolute;
+    inset: 0;
+    max-height: 450px;
+    overflow: hidden;
+}
+
+.mySlides.active {
+    opacity: 1;
+    position: relative;
+}
+
+.mySlides img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    background: #171b31;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .mySlides img {
+        max-height: 300px;
+    }
+}
+
+/* Prev/Next buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    user-select: none;
+    transform: translateY(-50%);
+    z-index: 20;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption */
+.caption-container {
     text-align: center;
-    padding: 20px;
-    font-size: 13px;
-    color: #ffffff;
+    background-color: #171b31;
+    padding: 8px 16px;
+    color: white;
+}
+
+/* THUMBNAILS ROW */
+.row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.column {
+    flex: 1;
+    max-width: 16.66%;
+}
+
+.column img {
+    width: 100%;
+    height: 90px;
+    object-fit: contain;
+    background: #171b31;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+/* Active thumbnail */
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
 }
 
 /* MOBILE */
