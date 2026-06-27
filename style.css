@@ -1,64 +1,74 @@
 @font-face {
-    font-family: 'CustomHeading';
+    font-family: 'MainFont';
     src: url('fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'YourParagraphFont';
+    font-family: 'TextFont';
     src: url('fonts/Blinker-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
+:root {
+    --base-color: #000000;
+    --text-color: #ffffff;
+    --primary-color: #fff037;
+    --secondary-color: #ffffff;
+    --color-1: rgb(15, 20, 30);
+    --color-2: rgb(220, 205, 0);
+    --color-3: rgba(0, 0, 0, 0.842);
+    --font-family: 'MainFont', sans-serif;
+}
 /* =========================
    TYPOGRAPHY
 ========================= */
 
 h1 {
-    font-family: 'CustomHeading', sans-serif;
+    font-family: 'MainFont', sans-serif;
     letter-spacing: 1px;
     text-align: center;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 h2 {
-    font-family: 'CustomHeading', sans-serif;
+    font-family: 'MainFont', sans-serif;
     font-weight: normal;
     text-align: center;
-    color: #ffffff;
+    color: var(--text-color);
 }
 
 h3 {
-    font-family: 'CustomHeading', sans-serif;
+    font-family: 'MainFont', sans-serif;
     font-size: clamp(24px, 2vw, 20px);
     text-transform: uppercase;
     text-align: center;
-    color: #ffffff;
+    color: var(--color-2);
 }
 
 p {
-    font-family: 'YourParagraphFont', Arial, sans-serif;
+    font-family: 'TextFont', Arial, sans-serif;
     font-size: clamp(16px, 2vw, 20px);
     line-height: 1.6;
     text-align: center;
 }
 
 
-/* RESET */
+/* TOP NAV BAR */
 * { box-sizing: border-box; }
 body {
     margin: 0;
-    font-family: 'CustomHeading', Arial, sans-serif;
-    background: #181818;
-    color: #222;
+    font-family: 'MainFont', Arial, sans-serif;
+    background: var(--base-color);
+    color: var(--text-color);
     overflow-x: hidden;
 }
 
 /* NAV */
 .top-nav {
-    background: #111;
+    background: var(--base-color);
     padding: 10px 0;
     position: sticky;
     top: 0;
@@ -66,24 +76,88 @@ body {
 }
 .nav-inner {
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.nav-left a,
+.nav-right a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+.nav-right {
+    display: flex;
+    gap: 20px;
 }
 .top-nav a {
-    color: #ddd;
+    color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
 }
-.top-nav a:hover { color: #fff; }
+.top-nav a:hover { color: var(--color-2); }
+
+#home {
+    scroll-margin-top: 100px;
+}
+
+/* HAMBURGER ICON */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background: var(--text-color);
+    border-radius: 3px;
+}
+
+/* MOBILE NAV */
+@media (max-width: 700px) {
+
+    .nav-inner {
+        justify-content: space-between;
+        padding: 0 15px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-right {
+        display: none;
+        flex-direction: column;
+        background: var(--base-color);
+        width: 100%;
+        padding: 10px 0;
+        margin-top: 10px;
+        border-top: 1px solid var(--color-2);
+    }
+
+    .nav-right a {
+        padding: 10px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-right.show {
+        display: flex;
+    }
+}
+
 
 /* HERO */
 .hero-slider {
     position: relative;
     height: 96vh;
     overflow: visible;
-    background: #000;
+    background: var(--base-color);
 }
 
 /* Parallax effect */
@@ -134,7 +208,7 @@ body {
     left: 50%;
     transform: translate(-50%, -60%);
     text-align: center;
-    color: #ffffff;
+    color: var(--secondary-color);
 }
 .hero-logo {
     width: min(750px, 90vw);
@@ -159,10 +233,12 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 15px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 .service {
-    background: #ffffffc7;
-    padding: 20px;
+    background: var(--color-3);
+    padding: 18px;
     text-align: center;
     border-radius: 6px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -171,7 +247,7 @@ body {
 /* CARDS */
 .card {
     scroll-margin-top: 35px;
-    background: #171b31;
+    background: var(--color-1);
     padding: 20px;
     margin-top: 20px;
     border-radius: 6px;
@@ -235,13 +311,20 @@ body {
     height: auto;
     max-height: 450px;
     object-fit: contain;
-    background: #171b31;
+    background: var(--color-1);
 }
 
 /* Mobile adjustments */
 @media (max-width: 600px) {
     .mySlides img {
         max-height: 300px;
+    }
+    .nav-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .nav-right {
+        gap: 10px;
     }
 }
 
@@ -252,7 +335,7 @@ body {
     position: absolute;
     top: 50%;
     padding: 16px;
-    color: white;
+    color: var(--color-2);
     font-weight: bold;
     font-size: 20px;
     user-select: none;
@@ -272,9 +355,9 @@ body {
 /* Caption */
 .caption-container {
     text-align: center;
-    background-color: #171b31;
+    background-color: var(--base-color);
     padding: 8px 16px;
-    color: white;
+    color: var(--text-color);
 }
 
 /* THUMBNAILS ROW */
@@ -294,7 +377,7 @@ body {
     width: 100%;
     height: 90px;
     object-fit: contain;
-    background: #171b31;
+    background: var(--color-1);
     padding: 4px;
     border-radius: 4px;
 }
@@ -308,6 +391,15 @@ body {
 .demo:hover {
     opacity: 1;
 }
+
+footer {
+    text-align: center;
+    font-size: 14px;          /* smaller, cleaner */
+    color: var(--color-2); /* matches your theme */
+    padding: 20px 0;          /* breathing room */
+    opacity: 0.8;             /* optional: softer look */
+}
+
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -326,7 +418,8 @@ body {
     }
 
     .services-strip {
-        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
+        padding: 0 10px; /* optional, adds breathing room */
     }
 
     .service {
@@ -338,13 +431,26 @@ body {
         margin: 15px;
     }
 
-    .compliance-logo {
-        grid-template-columns: 1fr;
+    .logo-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .compliance-logo img {
+        max-width: 140px;
+        height: auto;
     }
 
     .compliance-logo img {
         max-width: 180px;
         height: auto;
     }
+
+    .logo-row {
+    justify-content: space-evenly;
+    }
+
 
 }
