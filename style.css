@@ -19,8 +19,8 @@
     --base-color: #000000;
     --text-color: #ffffff;
     --primary-color: #fff037;
-    --secondary-color: #ffffff;
-    --color-1: rgb(15, 20, 30);
+    --secondary-color: #ffffff00;
+    --color-1: rgb(30, 40, 70);
     --color-2: rgb(220, 205, 0);
     --color-3: rgba(0, 0, 0, 0.842);
     --font-family: 'MainFont', sans-serif;
@@ -79,6 +79,7 @@ p {
     position: sticky;
     top: 0;
     z-index: 1000;
+    margin-top: 5px;
 }
 
 .nav-inner {
@@ -135,7 +136,7 @@ p {
 ========================= */
 .hero-slider {
     position: relative;
-    height: 96vh;
+    height: 75vh;
     overflow: visible;
     background: var(--base-color);
 }
@@ -145,6 +146,7 @@ p {
     position: absolute;
     inset: 0;
     transform: translateZ(0);
+    margin-top: 5px;
     will-change: transform;
 }
 
@@ -214,10 +216,18 @@ p {
    CARDS
 ========================= */
 .card {
-    scroll-margin-top: 35px;
+    scroll-margin-top: 50px;
     background: var(--color-1);
-    padding: 20px;
+    padding: 10px;
     margin-top: 20px;
+    border-radius: 6px;
+}
+
+.card1 {
+    scroll-margin-top: 50px;
+    background: var(--secondary-color);
+    padding: 2px;
+    margin-top: 2px;
     border-radius: 6px;
 }
 
@@ -283,7 +293,7 @@ p {
     width: auto;
     max-width: 85vw;
     object-fit: contain;
-    background: var(--color-1);
+    background: var(--secondary-color);
     border-radius: 8px;
     transition:
         transform 0.25s ease,
@@ -370,6 +380,11 @@ footer {
     .card {
         padding: 18px;
         margin: 15px;
+    }
+
+    .card1 {
+        padding: 2px;
+        margin: 2px;
     }
 
     /* GALLERY */
